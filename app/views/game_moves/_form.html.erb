@@ -1,0 +1,42 @@
+<%= form_with(model: game_move) do |form| %>
+  <% if game_move.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(game_move.errors.count, "error") %> prohibited this game_move from being saved:</h2>
+
+      <ul>
+        <% game_move.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :game_id, style: "display: block" %>
+    <%= form.text_field :game_id %>
+  </div>
+
+  <div>
+    <%= form.label :turn, style: "display: block" %>
+    <%= form.number_field :turn %>
+  </div>
+
+  <div>
+    <%= form.label :player, style: "display: block" %>
+    <%= form.text_field :player %>
+  </div>
+
+  <div>
+    <%= form.label :row, style: "display: block" %>
+    <%= form.number_field :row %>
+  </div>
+
+  <div>
+    <%= form.label :column, style: "display: block" %>
+    <%= form.number_field :column %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

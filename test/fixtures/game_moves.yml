@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  game: one
+  turn: 1
+  player: MyString
+  row: 1
+  column: 1
+
+two:
+  game: two
+  turn: 1
+  player: MyString
+  row: 1
+  column: 1
