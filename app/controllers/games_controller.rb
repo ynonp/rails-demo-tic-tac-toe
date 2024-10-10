@@ -8,6 +8,12 @@ class GamesController < ApplicationController
 
   def play
     GameMove.create!(game_move_params)
+    @game.broadcast_replace_to(
+      "game_#{@game.id}",
+      partial: "games/game",
+      locals: { game: @game }
+    )
+
     respond_to do |format|
       format.turbo_stream { render turbo_stream: turbo_stream.replace(@game) }
       format.html         { redirect_to show_game_url(@game.id) }

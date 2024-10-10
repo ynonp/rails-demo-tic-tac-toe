@@ -1,18 +1,18 @@
 <div id="<%= dom_id game %>">
-  <p>Now playing: <%= @game.next_player %></p>
+  <p>Now playing: <%= game.next_player %></p>
   <table>
     <tbody>
       <% (0..2).each do |row_index| %>
       <tr>
         <% (0..2).each do |column_index| %>
-          <% text = @game.at(row_index, column_index) %>    
+          <% text = game.at(row_index, column_index) %>    
           <td
             class="<%= class_names(playable: text == '.') %>">
-            <%= form_for :game_move, url: play_game_path(@game.id) do |f| %>
+            <%= form_for :game_move, url: play_game_path(game.id) do |f| %>
               <%= f.hidden_field :row, {value: row_index} %>
               <%= f.hidden_field :column, {value: column_index} %>
-              <%= f.hidden_field :game_id, {value: @game.id} %>
-              <%= f.hidden_field :player, {value: @game.next_player } %>
+              <%= f.hidden_field :game_id, {value: game.id} %>
+              <%= f.hidden_field :player, {value: game.next_player } %>
               <%= f.submit text %>    
             <% end %>            
           </td>

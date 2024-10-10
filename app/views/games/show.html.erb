@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
+<%= turbo_stream_from dom_id(@game) %>
 
-<%= render @game %>
+<%= render @game, locals: { game: @game } %>
 
 <div>
   <%= link_to "Edit this game", edit_game_path(@game) %> |
